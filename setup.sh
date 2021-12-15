@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 #########################
-#  _______ 
+#  _______
 # < setup >
-#  ------- 
+#  -------
 #    \
 #     \
 #         .--.
@@ -30,12 +30,11 @@ doas pacman -S --needed --noconfirm artix-archlinux-support > /dev/null 2>&1
 
 doas pacman-key --populate archlinux > /dev/null 2>&1
 
-[ -f /etc/pacman.conf ] && doas cp /etc/pacman.conf /etc/pacman.conf.bak
+doas cp /etc/pacman.conf /etc/pacman.conf.bak
 
-[ ! -f /etc/pacman.conf ] && doas printf '[options]
+doas printf '[options]
 HoldPkg = pacman glibc
 Architecture = auto
-
 Color
 CheckSpace
 ParallelDownloads = 5
@@ -44,17 +43,17 @@ ILoveCandy
 SigLevel = Required DatabaseOptional
 LocalFileSigLevel = Optional
 
-[system]
+[world]
 Include = /etc/pacman.d/mirrorlist
 
-[world]
+[lib32]
+Include = /etc/pacman.d/mirrorlist
+
+[system]
 Include = /etc/pacman.d/mirrorlist
 
 [galaxy]
 Include = /etc/pacman.d/mirrorlist
-
-[extra]
-Include = /etc/pacman.d/mirrorlist-arch
 
 [universe]
 Server = https://universe.artixlinux.org/$arch
@@ -63,15 +62,15 @@ Server = https://mirror.pascalpuffke.de/artix-universe/$arch
 Server = https://artixlinux.qontinuum.space:4443/universe/os/$arch
 Server = https://mirror.alphvino.com/artix-universe/$arch
 
-[community]
+[extra]
 Include = /etc/pacman.d/mirrorlist-arch
 
-[lib32]
-Include = /etc/pacman.d/mirrorlist' > /etc/pacman.conf
+[community]
+Include = /etc/pacman.d/mirrorlist-arch' > /etc/pacman.conf
 
 doas rm /etc/pacman.d/mirrorlist-arch
 
-[ ! -f /etc/pacman.d/mirrorlist-arch ] && doas printf 'Server = http://br.mirror.archlinux-br.org/$repo/os/$arch
+doas printf 'Server = http://br.mirror.archlinux-br.org/$repo/os/$arch
 Server = http://archlinux.c3sl.ufpr.br/$repo/os/$arch
 Server = http://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch
 Server = https://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch
@@ -84,9 +83,9 @@ Server = https://archlinux-br.com.br/archlinux/$repo/os/$arch' > /etc/pacman.d/m
 
 doas pacman -Syu --noconfirm > /dev/null 2>&1
 
-doas pacman -S --noconfirm --needed xorg-server xorg-xinit libx11 libxft xf86-video-intel gcc grep make patch ttf-hack ttf-dejavu ttf-font-awesome cantarell-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme > /dev/null 2>&1
+doas pacman -S --noconfirm --needed xorg-server xorg-xinit libx11 libxft xf86-video-intel gcc grep make patch ttf-hack ttf-dejavu ttf-font-awesome cantarell-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man > /dev/null 2>&1
 
-[ ! -f /etc/X11/xorg.conf ] && doas printf 'Section "Device"
+doas printf 'Section "Device"
     Identifier "Intel Graphics"
     Driver "intel"
     Option "DRI" "2"
@@ -118,7 +117,7 @@ Section "Extensions"
     Option "DPMS" "0"
 Endsection' > /etc/X11/xorg.conf
 
-[ ! -f /etc/dricrc ] && doas printf '<device screen="0" driver="dri2">
+doas printf '<device screen="0" driver="dri2">
     <application name="Default">
         <option name="vblank_mode" value="0"/>
     </application>
@@ -131,7 +130,7 @@ Endsection' > /etc/X11/xorg.conf
     </application>
 </device>' > /etc/dricrc
 
-[ ! -f $HOME/.gtkrc-2.0 ] && doas printf 'gtk-theme-name="Arc-Dark-solid"
+doas printf 'gtk-theme-name="Arc-Dark-solid"
 gtk-icon-theme-name="Arc"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="capitaine-cursors-light"
@@ -145,9 +144,9 @@ gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
-gtk-xft-rgba="none"' > $HOME/.gtkrc-2.0
+gtk-xft-rgba="rgb"' > $HOME/.gtkrc-2.0
 
-[ ! -f $HOME/.xinitrc ] && printf '#!/bin/sh
+printf '#!/bin/sh
 
 slstatus &
 ~/.fehbg &
@@ -158,29 +157,29 @@ xrdb -merge ~/.Xresources
 /usr/bin/pipewire-pulse &
 /usr/bin/pipewire-media-session &
 
-exec dbus-launch --exit-with-session dwm' > $HOME/.xinitrc
+exec dbus-launch --exit-with-session dwm' > ~/.xinitrc
 
-[ ! -f /etc/environment ] && doas printf'
+doas printf'
 LIBGL_DRI3_DISABLE=1' > /etc/environment
 
-[ ! -f $HOME/.bash_profile ] && printf '
+printf '
 startx > /dev/null 2>&1' > $HOME/.bash_profile
 
 doas echo 'set enable-keypad on' >> /etc/inputrc
 
-git clone --depth=1 https://github.com/xrft11/config.git $dir
+git clone --depth=1 https://github.com/xrft11/config.git $dir > /dev/null 2>&1
 
-git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git $dir/nvim/
+git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git ~/dir/ > /dev/null 2>&1
 
-rm -rf $dir/nvim/.git
+rm -rf ~/dir/.git
 
-rm -rf $dir/nvim/.gitignore
+rm -rf ~/dir/.gitignore
 
-rm -rf $dir/nvim/LICENSE
+rm -rf ~/dir/LICENSE
 
-rm -rf $dir/nvim/README.md
+rm -rf ~/dir/README.md
 
-rm -rf $dir/nvim/screenshots
+rm -rf ~/dir/screenshots
 
 cd $dwm
 
@@ -189,7 +188,6 @@ make -j$(nproc) clean install > /dev/null 2>&1
 cd $dmenu
 
 make -j$(nproc) clean install > /dev/null 2>&1
-
 cd $st
 
 make -j$(nproc) clean install > /dev/null 2>&1
