@@ -11,11 +11,10 @@
 ! special
 *.foreground:   #dfe5f2
 *.background:   #21242b
-*.cursorColor:  #2c323c
-
+*.cursorColor:  #dfe5f2
 
 ! black
-*.color0:       #21242b
+*.color0:       #4b5263
 *.color8:       #4b5263
 
 ! red
@@ -62,18 +61,18 @@ Xft.antialias: 1
 Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.autohint: 1
-Xft.rgba: none
-Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+Xft.lcdfilter: lcdfilter
 
 !! URxvt Appearance
-URxvt.font: xft:Hack:size=12:style=Regular
-URxvt.boldFont: xft:Hack:size=12:style=Bold
-URxvt.italicFont: xft:Hack:size=12:style=Italic
-URxvt.boldItalicfont: xft:Hack:size=12:style=Bold Italic
+URxvt.font: xft:Hack:size=15:style=Regular
+URxvt.boldFont: xft:Hack:size=15:style=Bold
+URxvt.italicFont: xft:Hack:size=15:style=Italic
+URxvt.boldItalicfont: xft:Hack:size=15:style=Bold Italic
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
-URxvt.internalBorder: 5
+URxvt.internalBorder: 15
 URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 0
 URxvt.saveline: 2048
@@ -84,7 +83,7 @@ URxvt.depth: 24
 URxvt.iso14755: 0
 URxvt.imLocale: en_US.UTF-8
 URxvt.imFont: Hack
-URxvt.termName: rxvt-256color
+URxvt.termName: rxvt-unicode-256color
 URxvt.intensityStyles: 0
 
 !! Copy Paste & Other Extensions
