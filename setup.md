@@ -3,7 +3,7 @@
 `/etc/default/grub`
 
 ```shell
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=0 console=tty2 udev.log_level=0 intel_idle.max_cstate=1 cryptomgr.notests initcall_debug intel_iommu=igfx_off no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 tsc=reliable nowatchdog i915.fastboot=1 i915.enable_fbc=1 i915.modeset=1 i915.error_capture=0 i915.enable_dp_mst=0 i915.enable_dc=0 i915.disable_power_well=1 i915.enable_dpcd_backlight=0 i915.enable_guc=0 i915.enable_psr=0 i915.enable_psr2_sel_fetch=0 i915.guc_log_level=0 i915.panel_use_ssc=0 module_blacklist=iTCO_wdt,iTCO_vendor_support"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=0 console=tty2 udev.log_level=0 intel_idle.max_cstate=1 cryptomgr.notests initcall_debug intel_iommu=igfx_off no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 tsc=reliable nowatchdog i915.fastboot=1 i915.enable_fbc=1 i915.error_capture=0 i915.enable_dp_mst=0 i915.enable_dc=0 i915.disable_power_well=1 i915.enable_dpcd_backlight=0 i915.enable_guc=0 i915.enable_psr=0 i915.enable_psr2_sel_fetch=0 i915.guc_log_level=0 i915.panel_use_ssc=0 module_blacklist=iTCO_wdt,iTCO_vendor_support"
 ```
 
 ### 2. Blacklist
@@ -20,7 +20,7 @@ install iTCO_vendor_support /bin/true
 `/etc/modprobe.d/i915.conf`
 
 ```shell
-options i915 fastboot=1 enable_fbc=1 modeset=1 error_capture=0 enable_dp_mst=0 enable_dc=0 disable_power_well=1 enable_dpcd_backlight=0 enable_guc=0 enable_psr=0 enable_psr2_sel_fetch=0 guc_log_level=0 panel_use_ssc=0
+options i915 fastboot=1 enable_fbc=1 error_capture=0 enable_dp_mst=0 enable_dc=0 disable_power_well=1 enable_dpcd_backlight=0 enable_guc=0 enable_psr=0 enable_psr2_sel_fetch=0 guc_log_level=0 panel_use_ssc=0
 ```
 
 ### 4. Modesetting
@@ -41,7 +41,8 @@ username hard nofile 524288
 
 ### 6. Wine Setup
 ```shell
-doas pacman -S --needed --noconfirm lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers lib32-vulkan-mesa-layers lib32-gnutls lib32-libxcomposite pipewire pipewire-alsa pipewire-pulse lib32-pipewire winetricks lutris 
+doas pacman -S --needed --noconfirm lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers lib32-vulkan-mesa-layers lib32-gnutls lib32-libxcomposite pipewire pipewire-alsa pipewire-pulse lib32-pipewire lib32-libpulse vkd3d lib32-vkd3d gamemode lib32-gamemode
+lib32-alsa-plugins winetricks lutris
 ```
 
 ### 7. osu! Setup
@@ -69,7 +70,7 @@ WINEPREFIX=~/Games/osu WINEARCH=win32 WINE=~/.local/share/lutris/runners/wine/lu
 ```
 
 ```shell
-doas pacman -S --needed --noconfirm virt-manager qemu libvirt-runit ovmf iptables-nft dnsmasq bridge-utils openbsd-netcat
+doas pacman -S --needed virt-manager qemu libvirt-runit ovmf iptables-nft dnsmasq bridge-utils openbsd-netcat
 ```
 
 ```shell
