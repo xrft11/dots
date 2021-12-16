@@ -15,8 +15,8 @@ install btusb /bin/true
 install btrtl /bin/true
 install btbcm /bin/true
 install btintel /bin/true
-install bluetooth /bin/true
 install iTCO_wdt /bin/true
+install bluetooth /bin/true
 install iTCO_vendor_support /bin/true
 ```
 
