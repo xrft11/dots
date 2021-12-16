@@ -3,7 +3,7 @@
 `/etc/default/grub`
 
 ```shell
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=0 console=tty2 udev.log_level=0 intel_idle.max_cstate=1 cryptomgr.notests initcall_debug intel_iommu=igfx_off no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 tsc=reliable nowatchdog i915.fastboot=1 i915.enable_fbc=1 i915.error_capture=0 i915.enable_dp_mst=0 i915.enable_dc=0 i915.disable_power_well=1 i915.enable_dpcd_backlight=0 i915.enable_guc=0 i915.enable_psr=0 i915.enable_psr2_sel_fetch=0 i915.guc_log_level=0 i915.panel_use_ssc=0 module_blacklist=iTCO_wdt,iTCO_vendor_support"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=0 console=tty2 udev.log_level=0 intel_idle.max_cstate=1 cryptomgr.notests initcall_debug intel_iommu=igfx_off no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 tsc=reliable nowatchdog i915.fastboot=1 i915.enable_fbc=1 i915.error_capture=0 i915.enable_dp_mst=0 i915.enable_dc=0 i915.disable_power_well=1 i915.enable_dpcd_backlight=0 i915.enable_guc=0 i915.enable_psr=0 i915.enable_psr2_sel_fetch=0 i915.guc_log_level=0 i915.panel_use_ssc=0 module_blacklist=iTCO_wdt,iTCO_vendor_support,btusb,btrtl,btbcm,btintel,bluetooth mitigations=off"
 ```
 
 ### 2. Blacklist
@@ -11,6 +11,11 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=0 console=tty2 udev.log_level=0 intel_idle.
 `/etc/modpribe.d/blacklist.conf`
 
 ```shell
+install btusb /bin/true
+install btrtl /bin/true
+install btbcm /bin/true
+install btintel /bin/true
+install bluetooth /bin/true
 install iTCO_wdt /bin/true
 install iTCO_vendor_support /bin/true
 ```
