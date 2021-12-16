@@ -70,7 +70,7 @@ WINEPREFIX=~/Games/osu WINEARCH=win32 WINE=~/.local/share/lutris/runners/wine/lu
 ```
 
 ```shell
-doas pacman -S --needed virt-manager qemu libvirt-runit ovmf iptables-nft dnsmasq bridge-utils openbsd-netcat
+doas pacman -S --needed virt-manager qemu libvirt-runit edk2-ovmf iptables-nft dnsmasq bridge-utils openbsd-netcat
 ```
 
 ```shell
