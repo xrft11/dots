@@ -43,13 +43,10 @@ ILoveCandy
 SigLevel = Required DatabaseOptional
 LocalFileSigLevel = Optional
 
-[world]
-Include = /etc/pacman.d/mirrorlist
-
-[lib32]
-Include = /etc/pacman.d/mirrorlist
-
 [system]
+Include = /etc/pacman.d/mirrorlist
+
+[world]
 Include = /etc/pacman.d/mirrorlist
 
 [galaxy]
@@ -61,6 +58,9 @@ Server = https://mirror1.artixlinux.org/universe/$arch
 Server = https://mirror.pascalpuffke.de/artix-universe/$arch
 Server = https://artixlinux.qontinuum.space:4443/universe/os/$arch
 Server = https://mirror.alphvino.com/artix-universe/$arch
+
+[lib32]
+Include = /etc/pacman.d/mirrorlist
 
 [extra]
 Include = /etc/pacman.d/mirrorlist-arch
