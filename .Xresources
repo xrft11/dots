@@ -37,7 +37,7 @@
 *.background:   #21242b
 
 ! cursor color
-*.cursorColor:  #2c323c
+*.cursorColor:  #dfe5f2
 
-*.termname:	st-256color
-*.borderpx:	15
+*.termname:     st-256color
+*.borderpx:     15
