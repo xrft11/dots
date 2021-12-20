@@ -40,4 +40,4 @@
 *.cursorColor:  #dfe5f2
 
 *.termname:     st-256color
-*.borderpx:     15
+*.borderpx:     35
