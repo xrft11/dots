@@ -1,3 +1,8 @@
+! special
+*.foreground:   #dfe5f2
+*.background:   #21242b
+*.cursorColor:  #dfe5f2
+
 ! black
 *.color0:       #4b5263
 *.color8:       #4b5263
@@ -30,14 +35,22 @@
 *.color7:       #dfe5f2
 *.color15:      #dfe5f2
 
-! foreground
-*.foreground:   #dfe5f2
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.rgba:       rgb
+Xft.autohint:   true
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcdfilter
 
-! background
-*.background:   #21242b
-
-! cursor color
-*.cursorColor:  #dfe5f2
-
+*.font:         hack:size=15:antialias=true:autohint=true
 *.termname:     st-256color
+*.shell:        /bin/sh
+*.minlatency:   8
+*.maxlatency:   33
+*.blinktimeout: 800
+*.bellvolume:   0
+*.tabspaces:    8
 *.borderpx:     35
+*.cwscale:      1.0
+*.chscale:      1.0
