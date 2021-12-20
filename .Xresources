@@ -63,7 +63,7 @@ Xft.lcdfilter:  lcdfilter
 *.shell:        /bin/sh
 *.cwscale:      1.0
 *.chscale:      1.0
-*.borderpx:     35
+*.borderpx:     15
 *.termname:     st-256color
 *.tabspaces:    8
 *.minlatency:   8
