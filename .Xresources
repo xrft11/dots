@@ -69,4 +69,4 @@ Xft.lcdfilter:  lcdfilter
 *.minlatency:   8
 *.maxlatency:   33
 *.bellvolume:   0
-*.blinktimeout: 800
+*.blinktimeout: 500
