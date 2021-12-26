@@ -70,20 +70,20 @@ Include = /etc/pacman.d/mirrorlist-arch' > /etc/pacman.conf
 
 doas rm /etc/pacman.d/mirrorlist-arch
 
-doas printf 'Server = http://br.mirror.archlinux-br.org/$repo/os/$arch
+doas printf 'Server = http://archlinux-br.com.br/archlinux/$repo/os/$arch
+Server = https://archlinux-br.com.br/archlinux/$repo/os/$arch
+Server = http://br.mirror.archlinux-br.org/$repo/os/$arch
 Server = http://archlinux.c3sl.ufpr.br/$repo/os/$arch
 Server = http://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch
 Server = https://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch
 Server = http://linorg.usp.br/archlinux/$repo/os/$arch
 Server = http://archlinux.pop-es.rnp.br/$repo/os/$arch
 Server = http://mirror.ufam.edu.br/archlinux/$repo/os/$arch
-Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch
-Server = http://archlinux-br.com.br/archlinux/$repo/os/$arch
-Server = https://archlinux-br.com.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist-arch
+Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist-arch
 
 doas pacman -Syu --noconfirm > /dev/null 2>&1
 
-doas pacman -S --noconfirm --needed xorg-server xorg-xinit libx11 libxft xf86-video-intel gcc grep make patch ttf-hack ttf-dejavu ttf-font-awesome cantarell-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift > /dev/null 2>&1
+doas pacman -S --noconfirm --needed xorg-server xorg-xinit libx11 libxft xf86-video-intel gcc grep make patch ttf-hack ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift > /dev/null 2>&1
 
 doas printf 'Section "Device"
     Identifier "Intel Graphics"
