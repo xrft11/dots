@@ -83,7 +83,7 @@ Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirro
 
 doas pacman -Syu --noconfirm > /dev/null 2>&1
 
-doas pacman -S --noconfirm --needed xorg-server xorg-xinit libx11 libxft xf86-video-intel gcc grep make patch ttf-hack ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift > /dev/null 2>&1
+doas pacman -S --noconfirm --needed xorg-server xorg-xinit libx11 libxft xf86-video-intel gcc grep make patch ttf-hack ttf-font-awesome ttf-dejavu cantarell-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift > /dev/null 2>&1
 
 doas printf 'Section "Device"
     Identifier "Intel Graphics"
