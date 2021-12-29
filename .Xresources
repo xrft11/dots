@@ -59,7 +59,8 @@ Xft.antialias:  true
 Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcdfilter
 
-*.font:         hack:size=15:antialias=true:autohint=true
+*.font:         hack:pixelsize=18:antialias=true:autohint=true
+*.font2:        font awesome 5 free solid:pixelsize=18:antialias=true:autohint=true
 *.shell:        /bin/sh
 *.cwscale:      1.0
 *.chscale:      1.0
