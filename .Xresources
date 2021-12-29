@@ -57,7 +57,7 @@ Xft.hinting:    true
 Xft.autohint:   true
 Xft.antialias:  true
 Xft.hintstyle:  hintfull
-Xft.lcdfilter:  lcdfilter
+Xft.lcdfilter:  lcddefault
 
 *.font:         hack:pixelsize=18:antialias=true:autohint=true
 *.font2:        font awesome 5 free solid:pixelsize=18:antialias=true:autohint=true
