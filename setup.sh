@@ -83,7 +83,7 @@ Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirro
 
 doas pacman -Syu --noconfirm > /dev/null 2>&1
 
-doas pacman -S --noconfirm --needed xorg-server xorg-xinit libx11 libxft xf86-video-intel gcc grep make patch ttf-hack ttf-font-awesome ttf-dejavu cantarell-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift > /dev/null 2>&1
+doas pacman -S --noconfirm --needed xorg-server xorg-xinit libxft xf86-video-intel gcc grep make patch ttf-hack ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift > /dev/null 2>&1
 
 doas printf 'Section "Device"
     Identifier "Intel Graphics"
@@ -131,6 +131,7 @@ doas printf '<device screen="0" driver="dri2">
 </device>' > /etc/dricrc
 
 doas printf 'gtk-theme-name="Arc-Dark-solid"
+gtk-theme-name="Arc-Dark-solid"
 gtk-icon-theme-name="Arc"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="capitaine-cursors-light"
@@ -139,8 +140,8 @@ gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
 gtk-button-images=1
 gtk-menu-images=1
-gtk-enable-event-sounds=1
-gtk-enable-input-feedback-sounds=1
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
@@ -165,7 +166,7 @@ LIBGL_DRI3_DISABLE=1' > /etc/environment
 printf '
 startx > /dev/null 2>&1' > $HOME/.bash_profile
 
-doas echo 'set enable-keypad on' >> /etc/inputrc
+doas printf 'set enable-keypad on' > /etc/inputrc
 
 git clone --depth=1 https://github.com/xrft11/config.git $dir > /dev/null 2>&1
 
