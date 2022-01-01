@@ -83,7 +83,7 @@ Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirro
 
 doas pacman -Syu --noconfirm > /dev/null 2>&1
 
-doas pacman -S --noconfirm --needed xorg-server xorg-xinit libxft xf86-video-intel gcc grep make patch ttf-hack ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift > /dev/null 2>&1
+doas pacman -S --noconfirm --needed autoconf automake binutils bison esysusers etmpfiles fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make patch pkgconf sed texinfo which xorg-server xorg-xinit libxft xf86-video-intel ttf-roboto-mono ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift capitaine-cursors > /dev/null 2>&1
 
 doas printf 'Section "Device"
     Identifier "Intel Graphics"
@@ -153,10 +153,10 @@ slstatus &
 ~/.fehbg &
 redshift -P -O 4500K &
 xrdb -merge ~/.Xresources
-/usr/bin/pipewire &
-/usr/bin/pipewire-alsa &
-/usr/bin/pipewire-pulse &
-/usr/bin/pipewire-media-session &
+pipewire &
+pipewire-alsa &
+pipewire-pulse &
+pipewire-media-session &
 
 exec dbus-launch --exit-with-session dwm' > ~/.xinitrc
 
