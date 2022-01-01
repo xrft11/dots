@@ -153,10 +153,10 @@ slstatus &
 ~/.fehbg &
 redshift -P -O 4500K &
 xrdb -merge ~/.Xresources
-pipewire &
-pipewire-alsa &
-pipewire-pulse &
-pipewire-media-session &
+/usr/bin/pipewire &
+/usr/bin/pipewire-alsa &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipewire-media-session &
 
 exec dbus-launch --exit-with-session dwm' > ~/.xinitrc
 
