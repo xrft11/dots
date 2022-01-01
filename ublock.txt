@@ -5,11 +5,6 @@ no-remote-fonts: * true
 no-scripting: * true
 no-scripting: skins.osuck.net false
 no-scripting: osu.ppy.sh false
-no-scripting: www.youtube.com false
-* * 1p-script block
-* * 3p-frame block
-* * 3p-script block
-* * inline-script block
 * ajax.googleapis.com * block
 * aspnetcdn.com * block
 * bootstrapcdn.com * block
@@ -19,11 +14,9 @@ no-scripting: www.youtube.com false
 * facebook.com * block
 * fonticons.com * block
 * fonts.googleapis.com * block
-* ggpht.com * block
 * ghbtns.com * block
 * google.com.br * block
 * googletagmanager.com * block
-* googleusercontent.com * block
 * gstatic.com * block
 * jsdelivr.net * block
 * recaptcha.net * block
