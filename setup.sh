@@ -155,7 +155,7 @@ pipewire &
 wireplumber &
 pipewire-alsa &
 pipewire-pulse &
-redshift -P -O 4500K &
+redshift -P -O 4000K &
 xrdb -merge ~/.Xdefaults
 
 exec dbus-launch --exit-with-session dwm' > ~/.xinitrc
