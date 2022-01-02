@@ -83,7 +83,7 @@ Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirro
 
 doas pacman -Syu --noconfirm > /dev/null 2>&1
 
-doas pacman -S --noconfirm --needed autoconf automake binutils bison esysusers etmpfiles fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make patch pkgconf sed texinfo which xorg-server xorg-xinit libxft xf86-video-intel ttf-roboto-mono ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine arc-solid-gtk-theme arc-icon-theme man redshift capitaine-cursors > /dev/null 2>&1
+doas pacman -S --noconfirm --needed autoconf automake binutils bison esysusers etmpfiles fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make patch pkgconf sed texinfo which xorg-server xorg-xinit libxft xf86-video-intel ttf-roboto-mono ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine man redshift capitaine-cursors > /dev/null 2>&1
 
 doas printf 'Section "Device"
     Identifier "Intel Graphics"
@@ -181,6 +181,28 @@ rm -rf ~/dir/LICENSE
 rm -rf ~/dir/README.md
 
 rm -rf ~/dir/screenshots
+
+mv ~/dir/colors/ $dir/nvim/
+
+mv ~/dir/autoload/ $dir/nvim/
+
+git clone --depth=1 https://github.com/vinceliuice/Qogir-theme.git > /dev/null 2>&1
+
+cd ~/Qogir-theme/
+
+doas sh install.sh > /dev/null 2>&1
+
+cd $HOME
+
+git clone --depth=1 https://github.com/vinceliuice/Qogir-icon-theme > /dev/null 2>&1
+
+cd ~/Qogir-icon-theme/
+
+doas sh install.sh > /dev/null 2>&1
+
+cd $HOME
+
+rm -rf ~/Qogir*
 
 cd $dwm
 
