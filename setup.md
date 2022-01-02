@@ -46,7 +46,7 @@ username hard nofile 524288
 
 ### 6. Wine Setup
 ```shell
-doas pacman -S --needed --noconfirm lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers lib32-vulkan-mesa-layers lib32-gnutls lib32-libxcomposite pipewire pipewire-alsa pipewire-pulse lib32-pipewire wireplumber lib32-libpulse vkd3d lib32-vkd3d gamemode lib32-gamemode
+doas pacman -S --needed --noconfirm lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers lib32-vulkan-mesa-layers lib32-gnutls lib32-libxcomposite wireplumber pipewire pipewire-alsa pipewire-pulse lib32-pipewire lib32-libpulse vkd3d lib32-vkd3d gamemode lib32-gamemode
 lib32-alsa-plugins winetricks lutris
 ```
 
