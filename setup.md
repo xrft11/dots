@@ -28,7 +28,7 @@ install iTCO_vendor_support /bin/true
 options i915 fastboot=1 enable_fbc=1 error_capture=0 enable_dp_mst=0 enable_dc=0 disable_power_well=1 enable_dpcd_backlight=0 enable_guc=0 enable_psr=0 enable_psr2_sel_fetch=0 guc_log_level=0 panel_use_ssc=0
 ```
 
-### 4. Modesetting
+### 4. Early KMS
 
 `/etc/mkinitcpio.conf`
 
