@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 ###################################
 #  _______
@@ -151,12 +151,12 @@ printf '#!/bin/sh
 
 slstatus &
 ~/.fehbg &
+pipewire &
+wireplumber &
+pipewire-alsa &
+pipewire-pulse &
 redshift -P -O 4500K &
-xrdb -merge ~/.Xresources
-/usr/bin/pipewire &
-/usr/bin/pipewire-alsa &
-/usr/bin/pipewire-pulse &
-/usr/bin/pipewire-media-session &
+xrdb -merge ~/.Xdefaults
 
 exec dbus-launch --exit-with-session dwm' > ~/.xinitrc
 
