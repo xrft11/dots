@@ -14,14 +14,25 @@
 !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+! Normal      Bright
+! --------    -------
+! 0 Black      8 Black
+! 1 Red        9 Red
+! 2 Yellow    10 Yellow
+! 3 Green     11 Green
+! 4 Blue      12 Blue
+! 5 Magenta   13 Magenta
+! 6 Cyan      14 Cyan
+! 7 White     15 White
+
 ! special
 *.foreground:   #dfe5f2
 *.background:   #21242b
 *.cursorColor:  #dfe5f2
 
 ! black
-*.color0:       #4b5263
-*.color8:       #4b5263
+*.color0:       #5c6370
+*.color8:       #5c6370
 
 ! red
 *.color1:       #ff6e7a
@@ -89,10 +100,10 @@ Xft.lcdfilter:  lcddefault
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 !! URxvt Appearance
-URxvt.font: xft:Roboto Mono:pixelsize=18:style=Regular
-URxvt.boldFont: xft:Roboto Mono:pixelsize=18:style=Bold
-URxvt.italicFont: xft:Roboto Mono:pixelsize=18:style=Italic
-URxvt.boldItalicfont: xft:Roboto Mono:pixelsize=18:style=Bold Italic
+URxvt.font: xft:Roboto Mono:pixelsize=20:antialias=true:autohint=true:style=Regular
+URxvt.boldFont: xft:Roboto Mono:pixelsize=20:antialias=true:autohint=true:style=Bold
+URxvt.italicFont: xft:Roboto Mono:pixelsize=20:antilias=true:autohint=true:style=Italic
+URxvt.boldItalicfont: xft:Roboto Mono:pixelsize=20:antilias=true:autohint=true:style=Bold Italic
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
