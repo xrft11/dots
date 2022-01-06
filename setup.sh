@@ -166,8 +166,6 @@ LIBGL_DRI3_DISABLE=1' > /etc/environment
 printf '
 startx > /dev/null 2>&1' > $HOME/.bash_profile
 
-doas printf 'set enable-keypad on' > /etc/inputrc
-
 git clone --depth=1 https://github.com/xrft11/config.git $dir > /dev/null 2>&1
 
 git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git ~/dir/ > /dev/null 2>&1
@@ -188,18 +186,19 @@ mv ~/dir/autoload/ $dir/nvim/
 
 cd $dwm
 
-make -j$(nproc) clean install > /dev/null 2>&1
+doas make -j$(nproc) clean install > /dev/null 2>&1
 
 cd $dmenu
 
-make -j$(nproc) clean install > /dev/null 2>&1
+doas make -j$(nproc) clean install > /dev/null 2>&1
+
 cd $st
 
-make -j$(nproc) clean install > /dev/null 2>&1
+doas make -j$(nproc) clean install > /dev/null 2>&1
 
 cd $slstatus
 
-make -j$(nproc) clean install > /dev/null 2>&1
+doas make -j$(nproc) clean install > /dev/null 2>&1
 
 cd $HOME
 
