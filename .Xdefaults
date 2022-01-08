@@ -100,10 +100,10 @@ Xft.lcdfilter:  lcddefault
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 !! URxvt Appearance
-URxvt.font: xft:Roboto Mono:pixelsize=20:antialias=true:autohint=true:style=Regular
-URxvt.boldFont: xft:Roboto Mono:pixelsize=20:antialias=true:autohint=true:style=Bold
-URxvt.italicFont: xft:Roboto Mono:pixelsize=20:antilias=true:autohint=true:style=Italic
-URxvt.boldItalicfont: xft:Roboto Mono:pixelsize=20:antilias=true:autohint=true:style=Bold Italic
+URxvt.font: xft:Roboto Mono:pixelsize=18:antialias=true:autohint=true:style=Regular
+URxvt.boldFont: xft:Roboto Mono:pixelsize=18:antialias=true:autohint=true:style=Bold
+URxvt.italicFont: xft:Roboto Mono:pixelsize=18:antilias=true:autohint=true:style=Italic
+URxvt.boldItalicfont: xft:Roboto Mono:pixelsize=18:antilias=true:autohint=true:style=Bold Italic
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
