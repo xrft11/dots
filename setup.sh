@@ -147,16 +147,16 @@ gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"' > $HOME/.gtkrc-2.0
 
-printf '#!/bin/sh
+printf '#!/usr/bin/env
 
-slstatus &
 ~/.fehbg &
+slstatus &
 pipewire &
 wireplumber &
 pipewire-alsa &
 pipewire-pulse &
+xrdb ~/.Xdefaults
 redshift -P -O 4000K &
-xrdb -merge ~/.Xdefaults
 
 exec dbus-launch --exit-with-session dwm' > ~/.xinitrc
 
