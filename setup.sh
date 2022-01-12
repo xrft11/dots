@@ -16,23 +16,57 @@
 #
 ###################################
 
-st="$dir/st"
+st='$dir/st'
 
-dir="$HOME/.config/"
+dir='/home/*/.config/'
 
-dwm="$dir/dwm/"
+dwm='$dir/dwm/'
 
-dmenu="$dir/dmenu/"
+home='/home/*/'
 
-slstatus="$dir/slstatus/"
+dmenu='$dir/dmenu/'
 
-doas pacman -S --needed --noconfirm artix-archlinux-support > /dev/null 2>&1
+slstatus='$dir/slstatus/'
 
-doas pacman-key --populate archlinux > /dev/null 2>&1
+printf '<device screen="0" driver="dri2">
+    <application name="Default">
+        <option name="vblank_mode" value="0"/>
+    </application>
+</device>
 
-doas cp /etc/pacman.conf /etc/pacman.conf.bak
+<device driver="i915">
+    <application name="Default">
+        <option name="stub_occlusion_query" value="true" />
+        <option name="fragment_shader" value="true" />
+    </application>
+</device>' > /etc/drirc
 
-doas printf '[options]
+printf '#!/usr/bin/env bash
+
+~/.fehbg &
+slstatus &
+pipewire &
+wireplumber &
+pipewire-alsa &
+pipewire-pulse &
+xrdb ~/.Xdefaults
+redshift -P -O 4000K &
+
+exec dbus-launch --exit-with-session dwm' > $home/.xinitrc
+
+printf '
+LIBGL_DRI3_DISABLE=1' > /etc/environment
+
+printf '
+startx > /dev/null 2>&1' > $home/.bash_profile
+
+pacman -S --needed --noconfirm artix-archlinux-support > /dev/null 2>&1
+
+pacman-key --populate archlinux > /dev/null 2>&1
+
+mv /etc/pacman.conf /etc/pacman.conf.bak
+
+printf '[options]
 HoldPkg = pacman glibc
 Architecture = auto
 Color
@@ -68,9 +102,9 @@ Include = /etc/pacman.d/mirrorlist-arch
 [community]
 Include = /etc/pacman.d/mirrorlist-arch' > /etc/pacman.conf
 
-doas rm /etc/pacman.d/mirrorlist-arch
+mv /etc/pacman.d/mirrorlist-arch /etc/pacman.d/mirrorlist-arch.bak
 
-doas printf 'Server = http://archlinux-br.com.br/archlinux/$repo/os/$arch
+printf 'Server = http://archlinux-br.com.br/archlinux/$repo/os/$arch
 Server = https://archlinux-br.com.br/archlinux/$repo/os/$arch
 Server = http://br.mirror.archlinux-br.org/$repo/os/$arch
 Server = http://archlinux.c3sl.ufpr.br/$repo/os/$arch
@@ -81,11 +115,11 @@ Server = http://archlinux.pop-es.rnp.br/$repo/os/$arch
 Server = http://mirror.ufam.edu.br/archlinux/$repo/os/$arch
 Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist-arch
 
-doas pacman -Syu --noconfirm > /dev/null 2>&1
+pacman -Syu --noconfirm > /dev/null 2>&1
 
-doas pacman -S --noconfirm --needed autoconf automake binutils bison esysusers etmpfiles fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make patch pkgconf sed texinfo which xorg-server xorg-xinit libxft xf86-video-intel ttf-roboto-mono ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine man redshift capitaine-cursors arc-solid-gtk-theme arc-icon-theme gnome-themes-standard elementary-icon-theme > /dev/null 2>&1
+pacman -S --noconfirm --needed autoconf automake binutils bison esysusers etmpfiles fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make patch pkgconf sed texinfo which xorg-server xorg-xinit libxft xf86-video-intel ttf-roboto-mono ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine man redshift capitaine-cursors arc-solid-gtk-theme arc-icon-theme gnome-themes-standard elementary-icon-theme > /dev/null 2>&1
 
-doas printf 'Section "Device"
+printf 'Section "Device"
     Identifier "Intel Graphics"
     Driver "intel"
     Option "DRI" "2"
@@ -117,89 +151,32 @@ Section "Extensions"
     Option "DPMS" "0"
 Endsection' > /etc/X11/xorg.conf
 
-doas printf '<device screen="0" driver="dri2">
-    <application name="Default">
-        <option name="vblank_mode" value="0"/>
-    </application>
-</device>
-
-<device driver="i915">
-    <application name="Default">
-        <option name="stub_occlusion_query" value="true" />
-        <option name="fragment_shader" value="true" />
-    </application>
-</device>' > /etc/dricrc
-
-doas printf 'gtk-theme-name="Arc-Dark-solid"
-gtk-theme-name="Arc-Dark-solid"
-gtk-icon-theme-name="Arc"
-gtk-font-name="Cantarell 11"
-gtk-cursor-theme-name="capitaine-cursors-light"
-gtk-cursor-theme-size=0
-gtk-toolbar-style=GTK_TOOLBAR_BOTH
-gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
-gtk-button-images=1
-gtk-menu-images=1
-gtk-enable-event-sounds=0
-gtk-enable-input-feedback-sounds=0
-gtk-xft-antialias=1
-gtk-xft-hinting=1
-gtk-xft-hintstyle="hintfull"
-gtk-xft-rgba="rgb"' > $HOME/.gtkrc-2.0
-
-printf '#!/usr/bin/env
-
-~/.fehbg &
-slstatus &
-pipewire &
-wireplumber &
-pipewire-alsa &
-pipewire-pulse &
-xrdb ~/.Xdefaults
-redshift -P -O 4000K &
-
-exec dbus-launch --exit-with-session dwm' > ~/.xinitrc
-
-doas printf'
-LIBGL_DRI3_DISABLE=1' > /etc/environment
-
-printf '
-startx > /dev/null 2>&1' > $HOME/.bash_profile
-
 git clone --depth=1 https://github.com/xrft11/config.git $dir > /dev/null 2>&1
 
-git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git ~/dir/ > /dev/null 2>&1
+git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git $home/dir/ > /dev/null 2>&1
 
-rm -rf ~/dir/.git
+mv $home/dir/colors/ $dir/nvim/
 
-rm -rf ~/dir/.gitignore
+mv $home/dir/autoload/ $dir/nvim/
 
-rm -rf ~/dir/LICENSE
-
-rm -rf ~/dir/README.md
-
-rm -rf ~/dir/screenshots
-
-mv ~/dir/colors/ $dir/nvim/
-
-mv ~/dir/autoload/ $dir/nvim/
+rm -rf $home/dir/
 
 cd $dwm
 
-doas make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install > /dev/null 2>&1
 
 cd $dmenu
 
-doas make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install > /dev/null 2>&1
 
 cd $st
 
-doas make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install > /dev/null 2>&1
 
 cd $slstatus
 
-doas make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install > /dev/null 2>&1
 
-cd $HOME
+cd $home
 
 startx > /dev/null 2>&1
