@@ -48,6 +48,7 @@ slstatus &
 pipewire &
 wireplumber &
 pipewire-alsa &
+pipewire-jack &
 pipewire-pulse &
 xrdb ~/.Xdefaults
 redshift -P -O 4000K &
