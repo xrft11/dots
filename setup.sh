@@ -18,8 +18,6 @@
 
 st='/home/*/.config/st'
 
-dir='/home/*/.config/'
-
 dwm='/home/*/.config/dwm'
 
 dmenu='/home/*/.config/dmenu/'
