@@ -16,17 +16,15 @@
 #
 ###################################
 
-st='$dir/st'
+st='/home/*/.config/st'
 
 dir='/home/*/.config/'
 
-dwm='$dir/dwm/'
+dwm='/home/*/.config/dwm'
 
-home='/home/*/'
+dmenu='/home/*/.config/dmenu/'
 
-dmenu='$dir/dmenu/'
-
-slstatus='$dir/slstatus/'
+slstatus='/home/*/.config/slstatus/'
 
 printf '<device screen="0" driver="dri2">
     <application name="Default">
@@ -53,13 +51,13 @@ pipewire-pulse &
 xrdb ~/.Xdefaults
 redshift -P -O 4000K &
 
-exec dbus-launch --exit-with-session dwm' > $home/.xinitrc
+exec dbus-launch --exit-with-session dwm' > /home/*/.xinitrc
 
 printf '
 LIBGL_DRI3_DISABLE=1' > /etc/environment
 
 printf '
-startx > /dev/null 2>&1' > $home/.bash_profile
+startx > /dev/null 2>&1' > /home/*/.bash_profile
 
 pacman -S --needed --noconfirm artix-archlinux-support > /dev/null 2>&1
 
@@ -152,15 +150,15 @@ Section "Extensions"
     Option "DPMS" "0"
 Endsection' > /etc/X11/xorg.conf
 
-git clone --depth=1 https://github.com/xrft11/config.git $dir > /dev/null 2>&1
+git clone --depth=1 https://github.com/xrft11/config.git /home/*/.config/ > /dev/null 2>&1
 
-git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git $home/dir/ > /dev/null 2>&1
+git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git /home/*/onedarkhc.vim > /dev/null 2>&1
 
-mv $home/dir/colors/ $dir/nvim/
+mv /home/*/onedarkhc.vim/colors/ /home/*/.config/nvim/
 
-mv $home/dir/autoload/ $dir/nvim/
+mv /home/*/.config/autoload/ /home/*/.config/nvim/
 
-rm -rf $home/dir/
+rm -rf /home/*/onedarkhc.vim
 
 cd $dwm
 
