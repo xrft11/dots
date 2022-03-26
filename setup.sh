@@ -35,7 +35,7 @@ printf '<device screen="0" driver="dri2">
         <option name="stub_occlusion_query" value="true" />
         <option name="fragment_shader" value="true" />
     </application>
-</device>' > /etc/drirc
+</device>' >> /etc/drirc
 
 printf '#!/usr/bin/env bash
 
@@ -49,13 +49,13 @@ pipewire-pulse &
 xrdb ~/.Xdefaults
 redshift -P -O 4000K &
 
-exec dbus-launch --exit-with-session dwm' > /home/*/.xinitrc
+exec dbus-launch --exit-with-session dwm' >> /home/*/.xinitrc
 
 printf '
-LIBGL_DRI3_DISABLE=1' > /etc/environment
+LIBGL_DRI3_DISABLE=1' >> /etc/environment
 
 printf '
-startx > /dev/null 2>&1' > /home/*/.bash_profile
+startx > /dev/null 2>&1' >> /home/*/.bash_profile
 
 pacman -S --needed --noconfirm artix-archlinux-support > /dev/null 2>&1
 
@@ -87,8 +87,8 @@ Include = /etc/pacman.d/mirrorlist
 Server = https://universe.artixlinux.org/$arch
 Server = https://mirror1.artixlinux.org/universe/$arch
 Server = https://mirror.pascalpuffke.de/artix-universe/$arch
-Server = https://artixlinux.qontinuum.space:4443/universe/os/$arch
-Server = https://mirror.alphvino.com/artix-universe/$arch
+Server = https://artixlinux.qontinuum.space:4443/artixlinux/universe/os/$arch
+Server = https://mirror1.cl.netactuate.com/artix/universe/$arch
 
 [lib32]
 Include = /etc/pacman.d/mirrorlist
@@ -97,20 +97,7 @@ Include = /etc/pacman.d/mirrorlist
 Include = /etc/pacman.d/mirrorlist-arch
 
 [community]
-Include = /etc/pacman.d/mirrorlist-arch' > /etc/pacman.conf
-
-mv /etc/pacman.d/mirrorlist-arch /etc/pacman.d/mirrorlist-arch.bak
-
-printf 'Server = http://archlinux-br.com.br/archlinux/$repo/os/$arch
-Server = https://archlinux-br.com.br/archlinux/$repo/os/$arch
-Server = http://br.mirror.archlinux-br.org/$repo/os/$arch
-Server = http://archlinux.c3sl.ufpr.br/$repo/os/$arch
-Server = http://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch
-Server = https://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch
-Server = http://linorg.usp.br/archlinux/$repo/os/$arch
-Server = http://archlinux.pop-es.rnp.br/$repo/os/$arch
-Server = http://mirror.ufam.edu.br/archlinux/$repo/os/$arch
-Server = http://mirror.ufscar.br/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist-arch
+Include = /etc/pacman.d/mirrorlist-arch' >> /etc/pacman.conf
 
 pacman -Syu --noconfirm > /dev/null 2>&1
 
@@ -146,7 +133,7 @@ EndSection
 
 Section "Extensions"
     Option "DPMS" "0"
-Endsection' > /etc/X11/xorg.conf
+Endsection' >> /etc/X11/xorg.conf
 
 git clone --depth=1 https://github.com/xrft11/config.git /home/*/.config/ > /dev/null 2>&1
 
@@ -154,7 +141,7 @@ git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git /home/*/onedar
 
 mv /home/*/onedarkhc.vim/colors/ /home/*/.config/nvim/
 
-mv /home/*/.config/autoload/ /home/*/.config/nvim/
+mv /home/*/onedarkhc/autoload/ /home/*/.config/nvim/
 
 rm -rf /home/*/onedarkhc.vim
 
