@@ -56,28 +56,10 @@ WINEPREFIX=~/Games/osu WINEARCH=win32 WINE=~/.local/share/lutris/runners/wine/lu
 ```
 
 ### 8. Virt-Manager Setup
-`br10.xml`
 ```shell
-<network>
-  <name>br10</name>
-  <forward mode='nat'>
-    <nat>
-      <port start='1024' end='65535'/>
-    </nat>
-  </forward>
-  <bridge name='br10' stp='on' delay='0'/>
-  <ip address='192.168.30.1' netmask='255.255.255.0'>
-    <dhcp>
-      <range start='192.168.30.50' end='192.168.30.200'/>
-    </dhcp>
-  </ip>
-</network>
+doas pacman -S --needed virt-manager qemu libvirt-dinit edk2-ovmf iptables-nft dnsmasq bridge-utils openbsd-netcat
 ```
 
 ```shell
-doas pacman -S --needed virt-manager qemu libvirt-runit edk2-ovmf iptables-nft dnsmasq bridge-utils openbsd-netcat
-```
-
-```shell
-doas ln -s /etc/runit/sv/libvirtd /run/runit/service/; doas ln -s /etc/runit/sv/virtlogd /run/runit/service/; doas usermod -aG libvirt $USER; doas virsh net-define ~/.br10.xml; doas virsh net-start br10; doas virsh net-autostart br10
+doas virsh net-start default; doas virsh net-autostart default
 ```
