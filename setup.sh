@@ -16,13 +16,19 @@
 #
 ###################################
 
-st='/home/*/.config/st'
+st='/home/*/.config/st/'
 
-dwm='/home/*/.config/dwm'
+dwm='/home/*/.config/dwm/'
 
 dmenu='/home/*/.config/dmenu/'
 
 slstatus='/home/*/.config/slstatus/'
+
+xinitrc='/home/*/.xinitrc'
+
+nvim='/home/*/.config/nvim/'
+
+home='/home/*'
 
 printf '<device screen="0" driver="dri2">
     <application name="Default">
@@ -39,29 +45,28 @@ printf '<device screen="0" driver="dri2">
 
 printf '#!/usr/bin/env bash
 
+redshift -P -O 4000K &
 ~/.fehbg &
-slstatus &
+dunst &
 pipewire &
+slstatus &
 wireplumber &
 pipewire-alsa &
 pipewire-jack &
 pipewire-pulse &
 xrdb ~/.Xdefaults
-redshift -P -O 4000K &
 
-exec dbus-launch --exit-with-session dwm' >> /home/*/.xinitrc
+exec dbus-launch --exit-with-session dwm' >> $xinitrc
 
 printf '
 LIBGL_DRI3_DISABLE=1' >> /etc/environment
 
 printf '
-startx > /dev/null 2>&1' >> /home/*/.bash_profile
+startx > /dev/null 2>&1' >> $home/.bash_profile
 
-pacman -S --needed --noconfirm artix-archlinux-support > /dev/null 2>&1
+pacman -S --needed --noconfirm artix-archlinux-support
 
-pacman-key --populate archlinux > /dev/null 2>&1
-
-mv /etc/pacman.conf /etc/pacman.conf.bak
+pacman-key --populate archlinux
 
 printf '[options]
 HoldPkg = pacman glibc
@@ -90,18 +95,18 @@ Server = https://mirror.pascalpuffke.de/artix-universe/$arch
 Server = https://artixlinux.qontinuum.space:4443/artixlinux/universe/os/$arch
 Server = https://mirror1.cl.netactuate.com/artix/universe/$arch
 
-[lib32]
-Include = /etc/pacman.d/mirrorlist
+#[lib32]
+#Include = /etc/pacman.d/mirrorlist
 
 [extra]
 Include = /etc/pacman.d/mirrorlist-arch
 
 [community]
-Include = /etc/pacman.d/mirrorlist-arch' >> /etc/pacman.conf
+Include = /etc/pacman.d/mirrorlist-arch' > /etc/pacman.conf
 
-pacman -Syu --noconfirm > /dev/null 2>&1
+pacman -Syu --noconfirm
 
-pacman -S --noconfirm --needed autoconf automake binutils bison esysusers etmpfiles fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make patch pkgconf sed texinfo which xorg-server xorg-xinit libxft xf86-video-intel ttf-roboto-mono ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine man redshift capitaine-cursors arc-solid-gtk-theme arc-icon-theme gnome-themes-standard elementary-icon-theme > /dev/null 2>&1
+pacman -S --noconfirm --needed autoconf automake binutils bison esysusers etmpfiles fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make patch pkgconf sed texinfo which xorg-server xorg-xinit libxft xf86-video-intel ttf-roboto-mono ttf-font-awesome cantarell-fonts noto-fonts gtk-engines gtk-engine-murrine mandoc redshift capitaine-cursors arc-solid-gtk-theme arc-icon-theme lxappearance dunst libnotify
 
 printf 'Section "Device"
     Identifier "Intel Graphics"
@@ -135,32 +140,32 @@ Section "Extensions"
     Option "DPMS" "0"
 Endsection' >> /etc/X11/xorg.conf
 
-git clone --depth=1 https://github.com/xrft11/config.git /home/*/.config/ > /dev/null 2>&1
+git clone https://github.com/xrft11/config $home/.config
 
-git clone --depth=1 https://github.com/pacokwon/onedarkhc.vim.git /home/*/onedarkhc.vim > /dev/null 2>&1
+git clone https://github.com/pacokwon/onedarkhc.vim $home/
 
-mv /home/*/onedarkhc.vim/colors/ /home/*/.config/nvim/
+mv $home/onedarkhc.vim/colors/ $nvim
 
-mv /home/*/onedarkhc/autoload/ /home/*/.config/nvim/
+mv $home/onedarkhc/autoload/ $nvim
 
-rm -rf /home/*/onedarkhc.vim
+rm -rf $home/onedarkhc.vim
 
 cd $dwm
 
-make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install
 
 cd $dmenu
 
-make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install
 
 cd $st
 
-make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install
 
 cd $slstatus
 
-make -j$(nproc) clean install > /dev/null 2>&1
+make -j$(nproc) clean install
 
 cd $home
 
-startx > /dev/null 2>&1
+startx
