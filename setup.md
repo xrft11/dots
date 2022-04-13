@@ -61,5 +61,5 @@ doas pacman -S --needed virt-manager qemu libvirt-dinit edk2-ovmf iptables-nft d
 ```
 
 ```shell
-doas virsh net-start default; doas virsh net-autostart default
+doas virsh net-start default; doas virsh net-autostart default; doas usermod -aG libvirt $USER
 ```
