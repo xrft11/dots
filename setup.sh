@@ -138,7 +138,7 @@ EndSection
 
 Section "Extensions"
     Option "DPMS" "0"
-Endsection' >> /etc/X11/xorg.conf
+Endsection' > /etc/X11/xorg.conf
 
 git clone https://github.com/xrft11/config $home/.config
 
